@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const authRouter = require('./routes/auth');
 const pixRouter = require('./routes/pix');
+const paymentsRouter = require('./routes/payments'); // <--- ADICIONAR
 
 const app = express();
 app.use(express.json());
@@ -18,6 +19,7 @@ app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
 app.use('/auth', authRouter);
 app.use('/pix', pixRouter);
+app.use('/payments', paymentsRouter); // <--- ADICIONAR
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
